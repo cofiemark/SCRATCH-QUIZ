@@ -1,0 +1,241 @@
+/* Gamification CSS for Scratch Programming Quiz Platform */
+
+/* Badges */
+.badges-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.badge {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.badge:hover {
+    transform: scale(1.1);
+}
+
+.badge-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+}
+
+.badge-icon img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.badge-name {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.badge.locked .badge-icon {
+    background-color: #ddd;
+    opacity: 0.5;
+}
+
+.badge.locked .badge-name {
+    color: #999;
+}
+
+.badge.new-earned {
+    animation: badge-pulse 1.5s infinite;
+}
+
+@keyframes badge-pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Level Badges */
+.level-badge .badge-icon {
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Concept Badges */
+.concept-badge .badge-icon {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+/* Achievement Badges */
+.achievement-badge .badge-icon {
+    background-color: var(--tertiary-color);
+    color: white;
+}
+
+/* Badge Notification */
+.badge-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    z-index: 1000;
+    animation: slide-in 0.5s ease;
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.badge-notification-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--tertiary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.badge-notification-content {
+    flex: 1;
+}
+
+.badge-notification h4 {
+    margin-bottom: 0.25rem;
+    color: var(--tertiary-color);
+}
+
+/* Progress Elements */
+.level-progress {
+    margin-top: 0.5rem;
+}
+
+.level-progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    margin-bottom: 0.25rem;
+}
+
+.level-progress-bar {
+    height: 6px;
+    background-color: #e0e0e0;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.level-progress-fill {
+    height: 100%;
+    background-color: var(--primary-color);
+    transition: width 0.5s ease;
+}
+
+/* Hint System */
+.hint-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.hint-count {
+    background-color: var(--tertiary-color);
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* All Complete Screen */
+.all-badges {
+    margin: 2rem 0;
+}
+
+.completion-certificate {
+    border: 5px solid var(--tertiary-color);
+    padding: 2rem;
+    text-align: center;
+    margin: 2rem 0;
+    background-color: #fffdf0;
+}
+
+.certificate-title {
+    font-size: 2rem;
+    color: var(--tertiary-color);
+    margin-bottom: 1rem;
+}
+
+.certificate-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.certificate-date {
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+.certificate-signature {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .badges-container {
+        justify-content: center;
+    }
+    
+    .badge {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .badge-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .badge-notification {
+        width: 90%;
+        right: 5%;
+    }
+}

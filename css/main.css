@@ -1,0 +1,251 @@
+/* Main CSS for Scratch Programming Quiz Platform */
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #4c97ff; /* Scratch blue */
+    --secondary-color: #9966ff; /* Scratch purple */
+    --tertiary-color: #ffab19; /* Scratch orange */
+    --success-color: #4caf50;
+    --error-color: #f44336;
+    --text-color: #333;
+    --light-bg: #f5f5f5;
+    --white: #ffffff;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-bg);
+}
+
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+h2 {
+    font-size: 2rem;
+    color: var(--secondary-color);
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* Layout Components */
+header {
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+main {
+    flex: 1;
+    margin-bottom: 2rem;
+}
+
+footer {
+    padding: 1rem 0;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Buttons */
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: var(--transition);
+}
+
+.primary-button {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.primary-button:hover {
+    background-color: #3a7bd5;
+    transform: translateY(-2px);
+}
+
+.secondary-button {
+    background-color: var(--tertiary-color);
+    color: white;
+}
+
+.secondary-button:hover {
+    background-color: #e69500;
+    transform: translateY(-2px);
+}
+
+.text-button {
+    background: none;
+    color: var(--primary-color);
+    padding: 0.5rem;
+    text-decoration: underline;
+}
+
+.text-button:hover {
+    color: var(--secondary-color);
+}
+
+/* Screen Management */
+.screen {
+    display: none;
+    padding: 2rem;
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.screen.active {
+    display: block;
+}
+
+/* Progress Bar */
+.progress-container {
+    margin: 1rem 0;
+}
+
+.progress-bar {
+    height: 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--primary-color);
+    width: 0%; /* Will be updated by JS */
+    transition: width 0.5s ease;
+}
+
+/* Level Indicators */
+.level-indicators {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+}
+
+.level-indicator {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    transition: var(--transition);
+}
+
+.level-indicator.unlocked {
+    background-color: var(--tertiary-color);
+    color: white;
+}
+
+.level-indicator.completed {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.level-indicator.current {
+    border: 2px solid var(--primary-color);
+    transform: scale(1.1);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .screen {
+        padding: 1rem;
+    }
+    
+    button {
+        padding: 0.5rem 1rem;
+    }
+    
+    footer {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
